@@ -25,9 +25,9 @@ public class MealsTableCreate {
             System.out.println("Attempting to create table; please wait...");
             Table table = dynamoDB.createTable(tableName,
                 Arrays.asList(
-                    new KeySchemaElement("mealId", KeyType.HASH)),  //Partition key
+                    new KeySchemaElement("id", KeyType.HASH)),  //Partition key
                     Arrays.asList(
-                        new AttributeDefinition("mealId", ScalarAttributeType.N)), 
+                        new AttributeDefinition("id", ScalarAttributeType.N)), 
                     new ProvisionedThroughput(1L, 1L));
             table.waitForActive();
             System.out.println("Success.  Table status: " + table.getDescription().getTableStatus());
